@@ -1,14 +1,8 @@
-import express from "express";
+import app from "./app";
 
-const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-
-app.get("/health", (req, res) => {
-    res.json({ status: "ok", message: "API is running" , timestamp: new Date().toISOString() });
-});
-
-app.listen(port, () => {
-    console.log(`Up and running on port ${port} 🥳 - Health check 🏥 http://localhost:${port}/health`);
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🏥 Health check: http://localhost:${PORT}/health`);
 });
